@@ -1,4 +1,4 @@
-const BASE_URL = process.env.REACT_APP
+const BASE_URL = "https://study-notion-58uaz18f7-shivamshah12s-projects.vercel.app/api/v1"
 
 // AUTH ENDPOINTS
 export const endpoints = {
