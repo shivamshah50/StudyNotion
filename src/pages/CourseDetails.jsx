@@ -33,11 +33,11 @@ function CourseDetails() {
   const [confirmationModal, setConfirmationModal] = useState(null)
   useEffect(() => {
     // Calling fetchCourseDetails fucntion to fetch the details
-    ;(async () => {
+    (async () => {
       try {
         const res = await fetchCourseDetails(courseId)
-        // console.log("course details res: ", res)
-        setResponse(res)
+        console.log("course details res: ", res)
+        setResponse(res.data)
       } catch (error) {
         console.log("Could not fetch Course Details")
       }
@@ -62,7 +62,7 @@ function CourseDetails() {
     setIsActive(
       !isActive.includes(id)
         ? isActive.concat([id])
-        : isActive.filter((e) => e != id)
+        : isActive.filter((e) => e !== id)
     )
   }
 
@@ -156,7 +156,7 @@ function CourseDetails() {
               </div>
               <div>
                 <p className="">
-                  Created By {`${instructor.firstName} ${instructor.lastName}`}
+                  Created By {`${instructor.firstName || ""} ${instructor.lastName || ""}`}
                 </p>
               </div>
               <div className="flex flex-wrap gap-5 text-lg">

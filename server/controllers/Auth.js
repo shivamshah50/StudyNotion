@@ -105,6 +105,8 @@ exports.signup = async (req, res) => {
       image: "",
     })
 
+    console.log(user);
+
     return res.status(200).json({
       success: true,
       user,
@@ -192,6 +194,7 @@ exports.sendotp = async (req, res) => {
   try {
     const { email } = req.body;
     // console.log(req);
+    console.log(email);
 
     // Check if user is already present
     // Find user with provided email
@@ -213,6 +216,9 @@ exports.sendotp = async (req, res) => {
       lowerCaseAlphabets: false,
       specialChars: false,
     })
+
+    console.log(otp);
+
     const result = await OTP.findOne({ otp: otp })
     // console.log("Result is Generate OTP Func")
     // console.log("OTP", otp)

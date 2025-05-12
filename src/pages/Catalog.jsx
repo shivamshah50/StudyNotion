@@ -27,6 +27,8 @@ function Catalog() {
           (ct) => ct.name.split(" ").join("-").toLowerCase() === catalogName
         )[0]._id
         setCategoryId(category_id)
+
+
       } catch (error) {
         console.log("Could not fetch Categories.", error)
       }
@@ -34,10 +36,11 @@ function Catalog() {
   }, [catalogName])
   useEffect(() => {
     if (categoryId) {
-      ;(async () => {
+      ; (async () => {
         try {
           const res = await getCatalogPageData(categoryId)
           setCatalogPageData(res)
+          console.log("Coursesess ------", res.data);
         } catch (error) {
           console.log(error)
         }
@@ -81,21 +84,19 @@ function Catalog() {
         <div className="section_heading">Courses to get you started</div>
         <div className="my-4 flex border-b border-b-richblack-600 text-sm">
           <p
-            className={`px-4 py-2 ${
-              active === 1
-                ? "border-b border-b-yellow-25 text-yellow-25"
-                : "text-richblack-50"
-            } cursor-pointer`}
+            className={`px-4 py-2 ${active === 1
+              ? "border-b border-b-yellow-25 text-yellow-25"
+              : "text-richblack-50"
+              } cursor-pointer`}
             onClick={() => setActive(1)}
           >
             Most Populer
           </p>
           <p
-            className={`px-4 py-2 ${
-              active === 2
-                ? "border-b border-b-yellow-25 text-yellow-25"
-                : "text-richblack-50"
-            } cursor-pointer`}
+            className={`px-4 py-2 ${active === 2
+              ? "border-b border-b-yellow-25 text-yellow-25"
+              : "text-richblack-50"
+              } cursor-pointer`}
             onClick={() => setActive(2)}
           >
             New
