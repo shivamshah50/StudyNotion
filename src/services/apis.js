@@ -1,5 +1,5 @@
-const BASE_URL = "https://study-notion-58uaz18f7-shivamshah12s-projects.vercel.app/api/v1"
-
+// const BASE_URL = "https://study-notion-58uaz18f7-shivamshah12s-projects.vercel.app/api/v1"
+const BASE_URL = "http://localhost:4000/api/v1";
 // AUTH ENDPOINTS
 export const endpoints = {
   SENDOTP_API: BASE_URL + "/auth/sendotp",
